@@ -1,5 +1,11 @@
+import com.github.bhlangonijr.chesslib.Board;
+import mytristronics.java.chessGui.GameWindow;
+
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+        GameWindow board = new GameWindow();
+        //System.out.println(board.toString());
+        Board board2 = new Board();
+        board2.boardToArray();
     }
 }

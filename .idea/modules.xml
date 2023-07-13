@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Chess GUI.iml" filepath="$PROJECT_DIR$/Chess GUI.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../chesslib/chesslib.iml" filepath="$PROJECT_DIR$/../chesslib/chesslib.iml" />
     </modules>
   </component>
 </project>
