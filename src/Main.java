@@ -3,9 +3,9 @@ import mytristronics.java.chessGui.GameWindow;
 
 public class Main {
     public static void main(String[] args) {
-        GameWindow board = new GameWindow();
+        //GameWindow board = new GameWindow();
         //System.out.println(board.toString());
         Board board2 = new Board();
-        board2.boardToArray();
+        System.out.println(board2.getFen());
     }
 }
