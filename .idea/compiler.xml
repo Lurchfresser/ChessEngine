@@ -6,13 +6,14 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="Chess GUI" />
         <module name="chesslib" />
+        <module name="JUnit" />
+        <module name="ChessEngine" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="Chess GUI" target="11" />
-      <module name="chesslib" target="11" />
+      <module name="Chess Engine" target="11" />
+      <module name="ChessGUI" target="11" />
     </bytecodeTargetLevel>
   </component>
 </project>

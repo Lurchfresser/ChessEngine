@@ -14,8 +14,8 @@ import java.util.Map;
 public class GUIBoard extends JPanel {
 
     Board board;
-    final Map<String, Square> squareMap = new HashMap<String, Square>();
-    final Square[] squares = new Square[64];
+    final Map<String, GUISquare> squareMap = new HashMap<String, GUISquare>();
+    final GUISquare[] GUISquares = new GUISquare[64];
 
     int size;
 
@@ -56,26 +56,26 @@ public class GUIBoard extends JPanel {
                 boolean isWhite = ((c % 2) ^ (i % 2)) > 0;
 
                 //creates the squares and puts them in a Hashmap with the SquareID as Key
-                Square square = new Square(ID, isWhite, squareSize, squareIndex);
+                GUISquare GUISquare = new GUISquare(ID, isWhite, squareSize, squareIndex);
 
-                add(square);
+                add(GUISquare);
 
-                squareMap.put(ID, square);
+                squareMap.put(ID, GUISquare);
 
-                squares[squareIndex++] = square;
+                GUISquares[squareIndex++] = GUISquare;
 
                 if (c == 'a') {
-                    square.add(jLabelFactory(Integer.toString(i)), BorderLayout.PAGE_START);
+                    GUISquare.add(jLabelFactory(Integer.toString(i)), BorderLayout.PAGE_START);
                 } else {
-                    square.add(BoxFiller(true), BorderLayout.PAGE_START);
+                    GUISquare.add(BoxFiller(true), BorderLayout.PAGE_START);
                 }
                 if (i == 1) {
-                    square.add(jLabelFactory(Character.toString(c)), BorderLayout.PAGE_END);
+                    GUISquare.add(jLabelFactory(Character.toString(c)), BorderLayout.PAGE_END);
                 } else {
-                    square.add(BoxFiller(true), BorderLayout.PAGE_END);
+                    GUISquare.add(BoxFiller(true), BorderLayout.PAGE_END);
                 }
-                square.add(BoxFiller(false), BorderLayout.LINE_START);
-                square.add(BoxFiller(false), BorderLayout.LINE_END);
+                GUISquare.add(BoxFiller(false), BorderLayout.LINE_START);
+                GUISquare.add(BoxFiller(false), BorderLayout.LINE_END);
             }
         }
     }
@@ -94,26 +94,26 @@ public class GUIBoard extends JPanel {
                 //exclusive Or on weather the number or the char is odd
                 boolean isWhite = ((c % 2) ^ (i % 2)) > 0;
 
-                Square square = new Square(ID, isWhite, squareSize, squareIndex);
+                GUISquare GUISquare = new GUISquare(ID, isWhite, squareSize, squareIndex);
 
-                add(square);
+                add(GUISquare);
 
-                squareMap.put(ID, square);
+                squareMap.put(ID, GUISquare);
 
-                squares[squareIndex--] = square;
+                GUISquares[squareIndex--] = GUISquare;
 
                 if (c == 'h') {
-                    square.add(jLabelFactory(Integer.toString(i)), BorderLayout.PAGE_START);
+                    GUISquare.add(jLabelFactory(Integer.toString(i)), BorderLayout.PAGE_START);
                 } else {
-                    square.add(BoxFiller(true), BorderLayout.PAGE_START);
+                    GUISquare.add(BoxFiller(true), BorderLayout.PAGE_START);
                 }
                 if (i == 8) {
-                    square.add(jLabelFactory(Character.toString(c)), BorderLayout.PAGE_END);
+                    GUISquare.add(jLabelFactory(Character.toString(c)), BorderLayout.PAGE_END);
                 } else {
-                    square.add(BoxFiller(true), BorderLayout.PAGE_END);
+                    GUISquare.add(BoxFiller(true), BorderLayout.PAGE_END);
                 }
-                square.add(BoxFiller(false), BorderLayout.LINE_START);
-                square.add(BoxFiller(false), BorderLayout.LINE_END);
+                GUISquare.add(BoxFiller(false), BorderLayout.LINE_START);
+                GUISquare.add(BoxFiller(false), BorderLayout.LINE_END);
             }
         }
     }
@@ -149,11 +149,16 @@ public class GUIBoard extends JPanel {
             if (pieces[i].getPieceType() != null) {
                 GUIPiece piece = new GUIPiece(pieces[i], pieceSize);
                 piece.addMouseListener(new PieceMoveMouseListener());
-                squares[63 - i].add(piece, BorderLayout.CENTER);
+                GUISquares[63 - i].add(piece, BorderLayout.CENTER);
             }
         }
     }
 
+    public void highLightBitboard(long bb){
+        for (GUISquare square:GUISquares){
+
+        }
+    }
 
     class PieceMoveMouseListener implements MouseListener {
         @Override

@@ -3,13 +3,13 @@ package mytristronics.java.chessGui;
 import javax.swing.*;
 import java.awt.*;
 
-public class Square extends JPanel {
+public class GUISquare extends JPanel {
     final private String ID;
     final boolean isWhite;
 
     final int squareIndex;
 
-    public Square(String ID, boolean isWhite, int size, int squareIndex1) {
+    public GUISquare(String ID, boolean isWhite, int size, int squareIndex1) {
         super(new BorderLayout());
         this.ID = ID;
         this.isWhite = isWhite;
